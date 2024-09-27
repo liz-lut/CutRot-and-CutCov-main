@@ -1,0 +1,17 @@
+1、加入configs.py，包含四个数据集的路径
+2、修改experiment文件夹中的data path
+3、修改命令为如下：
+Dogs:
+nohup python train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 400 --stage 3 --val_epoch 20 --weight_decay 5e-4 --nesterov --train_way 10 --train_shot 5 --train_transform_type 0 --test_shot 1 5 --test_transform_type 0 --resnet --gpu 3 > Resnet12_Dogs_10w_5s_FRN.out 2>&1 &
+nohup python train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 400 --stage 3 --val_epoch 20 --weight_decay 5e-4 --nesterov --train_way 10 --train_shot 5 --train_transform_type 0 --test_shot 1 5 --test_transform_type 0 --resnet --gpu 0 > Resnet12_Dogs_10w_5s_Proto.out 2>&1 &
+
+---------下面的没有跑
+CUB:
+nohup python train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 400 --stage 3 --val_epoch 20 --weight_decay 5e-4 --nesterov --train_way 10 --train_shot 5 --train_transform_type 0 --test_shot 1 5 --pre --resnet --gpu 3 > Resnet12_CUB_10w_5s_FRN.out 2>&1 &
+nohup python train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 400 --stage 3 --val_epoch 20 --weight_decay 5e-4 --nesterov --train_way 10 --train_shot 5 --train_transform_type 0 --test_shot 1 5 --pre --resnet --gpu 1 > Resnet12_CUB_10w_5s_Proto.out 2>&1 &
+
+Air:
+nohup python train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 400 --stage 3 --val_epoch 20 --weight_decay 5e-4 --nesterov --train_way 10 --train_shot 5 --train_transform_type 0 --test_shot 1 5 --pre --resnet --gpu 3 > Resnet12_Air_10w_5s_FRN.out 2>&1 &
+nohup python train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 400 --stage 3 --val_epoch 20 --weight_decay 5e-4 --nesterov --train_way 10 --train_shot 5 --train_transform_type 0 --test_shot 1 5 --pre --resnet --gpu 0 > Resnet12_Air_10w_5s_Proto.out 2>&1 &
+
+noting：data path -> model's selection -> training -> save model
